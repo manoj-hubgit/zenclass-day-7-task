@@ -5,6 +5,8 @@ request.send();
 request.onload=function(){
     var data = request.response;
     var result = JSON.parse(data)
+
+    //TASK 1:Get all the countries from Asia continent /region using Filter function
     var res = result.filter((ele)=>ele.region==="Asia")
     console.log("The Countries from Asia Continent:");
      var final = res.map((ele)=>console.log(ele.name.common))
@@ -22,11 +24,11 @@ result.forEach(ele => {
     console.log("Flag:", ele.flags.svg);
 });
 
-//TASK 4: Print the total population of countries using reduce function
+   //TASK 4: Print the total population of countries using reduce function
 var totalPopu = result.reduce((acc, curr) => acc + curr.population, 0);
     console.log("Total population of countries:", totalPopu);
  
-//TASK 5:Print the country that uses US dollars as currency.
+   //TASK 5:Print the country that uses US dollars as currency.
 var UsingUSD = result.filter(ele => ele.currencies && ele.currencies.USD);
 console.log("Countries using US dollars as currency:");
 UsingUSD.forEach(ele => console.log(ele.name.common));   
